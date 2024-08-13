@@ -53,4 +53,16 @@ class PostController extends Controller
             'user' => $user
         ]);
     }
+
+    public function destroy(Post $post)
+    {
+        if($post->user_id = auth()->user()->id)
+        {
+            dd("Es la misma persona");
+        }
+        else
+        {
+            dd("No es la misma persona");
+        }
+    }
 }
