@@ -25,4 +25,16 @@ class Post extends Model
     {
         return $this->hasMany(Comentario::class);
     }
+
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
+    //REVISAR SI UN USUARIO YA LE DIO LIKE A UN POST
+    public function checklike(User $user)
+    {
+        //contains: se situa en tabla likes y revisa la columna user_id y revisar si existe ese usuario->id
+        return $this->likes->contains('user_id', $user->id);
+    }
 }
