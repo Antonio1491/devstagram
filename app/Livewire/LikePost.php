@@ -8,11 +8,13 @@ class LikePost extends Component
 {
     public $post;
     public $isLike;
+    public $likes;
 
     //es lo mismo que un constructor
     public function mount($post)
     {
         $this->isLike = $post->checklike(auth()->user());
+        $this->likes = $post->likes()->count();
     }
 
     public function like()
@@ -21,12 +23,14 @@ class LikePost extends Component
         {
             $this->post->likes()->where('post_id', $this->post->id)->delete();
             $this->isLike = false;
+            $this->likes--;
         }
         else {
             $this->post->likes()->create([
                 'user_id' => auth()->user()->id
             ]);
             $this->isLike = true;
+            $this->likes++;
         }
     }
 

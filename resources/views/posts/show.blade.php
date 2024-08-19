@@ -40,9 +40,7 @@
           
         @endauth
 
-        <p class="font-bold">{{$post->likes->count()}} 
-          <span class="font-normal">Likes</span>  
-        </p>
+        
       </div>
 
       <div>
