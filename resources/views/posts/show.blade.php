@@ -17,7 +17,7 @@
 
         <livewire:like-post :post="$post" />
 
-          @if ($post->checklike(auth()->user()))
+          {{-- @if ($post->checklike(auth()->user()))
           <form action="{{route('posts.likes.destroy', $post)}}" method="POST">
             @method('DELETE')
             @csrf
@@ -36,7 +36,7 @@
               </button>
               </div>
             </form>
-          @endif
+          @endif --}}
           
         @endauth
 
